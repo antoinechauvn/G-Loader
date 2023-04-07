@@ -3,7 +3,7 @@ import QtQuick
 Item {
     width: 140
     height: 50
-    property string username
+    property string nickname
     property string figure_url
 
     Rectangle {
@@ -13,16 +13,16 @@ Item {
         anchors.fill: parent
     
         Text {
-            id: text1
+            id: username
             y: 17
-            text: username
+            text: nickname
             anchors.verticalCenter: parent.verticalCenter
             font.pixelSize: 12
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
         Image {
-            id: image
+            id: profile_picture
             x: 0
             y: -6
             width: 54
