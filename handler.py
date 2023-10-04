@@ -1,11 +1,12 @@
+from PySide6.QtCore import QObject, Signal
 
 
-class Handler:
+class Handler(QObject):
+    loadQMLSignal = Signal()
     def __init__(self, extension, engine) -> None:
+        super().__init__()
         self.extension = extension
         self.version = 1
-        self.engine= engine
-        self.window = self.engine.rootObjects()[0]
 
     def bind(self):
         self.extension.on_event('init', self.on_extension_init)
@@ -20,7 +21,7 @@ class Handler:
         print(f"Ending connection: G-Handler Version {self.version}")
 
     def on_double_click(self):
-        self.window.setVisible(not self.window.isVisible())
+        self.loadQMLSignal.emit()
 
     def on_extension_init(self):
         print(f"Initializing G-Loader: G-Handler Version {self.version}")
