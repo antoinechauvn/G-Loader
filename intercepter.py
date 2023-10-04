@@ -23,7 +23,7 @@ class RoomIntercepter(RoomUsers):
             for entity in entity_list:
                 if entity.entity_type == HEntityType.HABBO:
                     if not self.duplicate(entity.name):
-                        avatar_url = f"https://www.habbo.com/habbo-imaging/avatarimage?figure={entity.figure_id.split('&')[0]}&direction=3&size=l.0&head_direction=3&headonly=1"
+                        avatar_url = f"https://www.habbo.com.br/habbo-imaging/avatarimage?figure={entity.figure_id.split('&')[0]}&direction=3&size=l.0&head_direction=3&headonly=1"
                         self.locallist.append(entity.name)
                         self.userlist.list_append(entity.name, avatar_url)
     
